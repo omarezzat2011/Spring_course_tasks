@@ -8,12 +8,14 @@ public class Main {
         System.out.println("Hello world!");
         ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
 
-        Circle circle = (Circle) context.getBean("circleObj");
-        circle.draw2d();
-        circle.draw3d();
-        Rectangle rectangle = (Rectangle) context.getBean("rectangleObj");
-        rectangle.draw2d();
-        rectangle.draw3d();
+        Car car = (Car) context.getBean("carObj");
+        Plane plane = (Plane) context.getBean("planeObj");
+        car.save();
+        plane.save();
+        VehicleRepository vehicleRepository = (VehicleRepository) context.getBean("vehicleRepository");
+
+
+
 
 
 

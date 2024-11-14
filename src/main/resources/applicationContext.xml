@@ -9,21 +9,24 @@
 
 
     <!-- Define your beans here -->
-
-    <bean id="circleObj" class="com.omarezzat.Circle">
-        <constructor-arg name="radius" value="3"/>
-        <constructor-arg name="draw2d" ref="draw2dObj"/>
-        <constructor-arg name="draw3d" ref="draw3dObj"/>
-
+    <context:property-placeholder location="classpath:application.properties" />
+    <bean id="carObj" class="com.omarezzat.Car">
+        <constructor-arg name="vehicleRepository" ref="vehicleRepository"/>
+        <constructor-arg name="brand" value=""/>
+        <property name="brand" value="BMW"/>
     </bean>
-    <bean id="rectangleObj" class="com.omarezzat.Rectangle">
-        <property name="length" value="5"/>
-        <property name="width" value="10"/>
-        <constructor-arg name="draw2d" ref="draw2dObj"/>
-        <constructor-arg name="draw3d" ref="draw3dObj"/>
+
+    <bean id="planeObj" class="com.omarezzat.Plane">
+        <constructor-arg name="vehicleRepository" ref="vehicleRepository"/>
+        <constructor-arg name="brand" value=""/>
+        <property name="brand" value="EgyptAir"/>
     </bean>
-    <bean id = "draw2dObj" class="com.omarezzat.Draw2d"> </bean>
-    <bean id = "draw3dObj" class="com.omarezzat.Draw3d"> </bean>
+
+    <bean id = "vehicleRepository" class="com.omarezzat.VehicleRepository">
+        <constructor-arg index="0" value="${database.url}"/>
+        <constructor-arg index="1" value="${database.user}"/>
+        <constructor-arg index="2" value="${database.password}"/>
+    </bean>
 
 </beans>
 
