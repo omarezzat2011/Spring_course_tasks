@@ -10,6 +10,8 @@ import lombok.NoArgsConstructor;
 public class Circle  implements Shape{
     private double radius;
     private final double PI=3.14;
+    private Draw2d draw2d;
+    private Draw3d draw3d;
 
 
     @Override
@@ -18,7 +20,18 @@ public class Circle  implements Shape{
     }
 
     @Override
+    public void draw2d() {
+        System.out.println( draw2d.draw()+"Circle");
+    }
+
+    @Override
+    public void draw3d() {
+        System.out.println( draw3d.draw()+"Circle");
+    }
+
+    @Override
     public String toString() {
         return "Circle [radius=" + radius +"]";
     }
+
 }

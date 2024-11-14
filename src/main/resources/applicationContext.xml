@@ -10,13 +10,20 @@
 
     <!-- Define your beans here -->
 
-    <bean id="circle"
-          class="com.omarezzat.Circle">
-    </bean>
+    <bean id="circleObj" class="com.omarezzat.Circle">
+        <constructor-arg name="radius" value="3"/>
+        <constructor-arg name="draw2d" ref="draw2dObj"/>
+        <constructor-arg name="draw3d" ref="draw3dObj"/>
 
-    <bean id="rectangle"
-          class="com.omarezzat.Rectangle">
     </bean>
+    <bean id="rectangleObj" class="com.omarezzat.Rectangle">
+        <property name="length" value="5"/>
+        <property name="width" value="10"/>
+        <constructor-arg name="draw2d" ref="draw2dObj"/>
+        <constructor-arg name="draw3d" ref="draw3dObj"/>
+    </bean>
+    <bean id = "draw2dObj" class="com.omarezzat.Draw2d"> </bean>
+    <bean id = "draw3dObj" class="com.omarezzat.Draw3d"> </bean>
 
 </beans>
 

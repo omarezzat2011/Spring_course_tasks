@@ -8,14 +8,13 @@ public class Main {
         System.out.println("Hello world!");
         ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
 
-        Circle circle = (Circle) context.getBean("circle");
-        circle.setRadius(3);
-        System.out.println(circle +" It's Area " + circle.getArea());
+        Circle circle = (Circle) context.getBean("circleObj");
+        circle.draw2d();
+        circle.draw3d();
+        Rectangle rectangle = (Rectangle) context.getBean("rectangleObj");
+        rectangle.draw2d();
+        rectangle.draw3d();
 
-        Rectangle rectangle = (Rectangle) context.getBean("rectangle");
-        rectangle.setWidth(10);
-        rectangle.setLength(5);
-        System.out.println(rectangle +" It's Area " + rectangle.getArea());
 
 
     }
